@@ -37,12 +37,12 @@ public class PostController {
     }
 
     @PostMapping(value = "/write", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<PostSaveResponse> createPost(@ModelAttribute PostRequest postRequest,
+    public String createPost(@ModelAttribute PostRequest postRequest,
                                                        @RequestPart(value = "file", required = false) MultipartFile file) {
         User user = new User(); // 임시 사용자 생성
         user.setId(1L);
-        PostSaveResponse response = postService.createPost(postRequest, user, file);
-        return ResponseEntity.ok(response);
+        postService.createPost(postRequest, user, file);
+        return "redirect:/";
     }
 
     @GetMapping("/post/{id}")

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,7 +22,7 @@
         </select>
         <input type="text" placeholder="Search" />
         <button type="submit">
-          <img src="../static/img/searchIcon-black.png" />
+          <img th:src="@{/img/searchicon-black.png}" />
         </button>
       </div>
 
